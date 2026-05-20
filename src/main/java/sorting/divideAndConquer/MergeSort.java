@@ -1,5 +1,7 @@
 package sorting.divideAndConquer;
 
+import java.util.Arrays;
+
 import sorting.AbstractSorting;
 
 /**
@@ -13,65 +15,59 @@ public class MergeSort<T extends Comparable<T>> extends AbstractSorting<T> {
 
 	@Override
 	public void sort(T[] array, int leftIndex, int rightIndex) {
-		if(array == null || leftIndex < 0 || rightIndex >= array.length || leftIndex >= rightIndex ){
-			return;
+		if(array!= null && leftIndex >= 0 && leftIndex < rightIndex && rightIndex < array.length ){
+			int meio = leftIndex + (rightIndex - leftIndex) / 2;
+			sort(array, leftIndex , meio);
+			sort(array, meio+1, rightIndex);
+
+			merge(array,leftIndex,rightIndex);
+
 		}
-
-	
-		if(array.length <= 1){
-			return;
-		}
-
-
-		int midle = (leftIndex+rightIndex)/2;
-		sort(array, leftIndex, midle);
-		sort(array, midle+1, rightIndex);
-
-		Merge(array, leftIndex, midle, rightIndex);
-
 	}
 
-	private void Merge(T[] array, int leftIndex, int midle, int rightIndex){
+	private void merge(T[] array,int leftIndex, int rightIndex){
 
-		int rightHelper = rightIndex - leftIndex;
-		T[] arrayHelper = (T[]) new Comparable[rightHelper + 1];
+		int tamanhoDoArray = rightIndex - leftIndex;
+		T[] helper = (T[]) new Comparable[tamanhoDoArray+1];
 
-		for(int i = 0; i <= rightHelper; i++){
-			arrayHelper[i] = array[leftIndex + i];
-
+		for(int i = 0; i <= tamanhoDoArray;i++){
+			helper[i] = array[leftIndex + i];
 		}
 
-		int midleHelper = rightHelper / 2 ;
+		int meioArray = tamanhoDoArray / 2;
 
 		int i = 0;
-		int j = midleHelper +1;
+		int j = meioArray + 1;
 		int k = leftIndex;
 
-		while (i <= midleHelper && j<= rightHelper ) {
-
-			if(arrayHelper[i].compareTo(arrayHelper[j]) < 0){
-				array[k] = arrayHelper[i];
+		while(i<= meioArray && j <= tamanhoDoArray){
+			if(helper[i].compareTo(helper[j]) < 0){
+				array[k] = helper[i];
 				i++;
+				k++;
 			} else {
-				array[k] = arrayHelper[j];
+				array[k] = helper[j];
 				j++;
-
+				k++;
 			}
-
-			k++;
-
-			
 		}
 
-
-		while(i <= midleHelper){
-			array[k] = arrayHelper[i];
+		while(i<=meioArray){
+			array[k] = helper[i];
+			k++;
 			i++;
-			k++;
-
 		}
-
-
-
 	}
+
 } 
+
+class Main {
+	public static void main(String[] args) {
+		Integer[] array = { 30, 28, 7, 29, 11, 26, 4, 22, 23, 31};
+		MergeSort<Integer> m = new MergeSort<Integer>();
+
+		m.sort(array, 0,array.length);
+
+		System.out.println(Arrays.toString(array));
+	}
+}
