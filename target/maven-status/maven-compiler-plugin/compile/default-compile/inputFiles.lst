@@ -1,6 +1,6 @@
-/home/lucas.paulino.fausto/Downloads/R02-01-environment/src/main/java/sorting/AbstractSorting.java
-/home/lucas.paulino.fausto/Downloads/R02-01-environment/src/main/java/sorting/Sorting.java
-/home/lucas.paulino.fausto/Downloads/R02-01-environment/src/main/java/sorting/divideAndConquer/MergeSort.java
-/home/lucas.paulino.fausto/Downloads/R02-01-environment/src/main/java/sorting/divideAndConquer/QuickSort.java
-/home/lucas.paulino.fausto/Downloads/R02-01-environment/src/main/java/sorting/divideAndConquer/quicksort3/QuickSortMedianOfThree.java
-/home/lucas.paulino.fausto/Downloads/R02-01-environment/src/main/java/util/Util.java
+/home/lucas/Roteiro02/src/main/java/sorting/AbstractSorting.java
+/home/lucas/Roteiro02/src/main/java/sorting/Sorting.java
+/home/lucas/Roteiro02/src/main/java/sorting/divideAndConquer/MergeSort.java
+/home/lucas/Roteiro02/src/main/java/sorting/divideAndConquer/QuickSort.java
+/home/lucas/Roteiro02/src/main/java/sorting/divideAndConquer/quicksort3/QuickSortMedianOfThree.java
+/home/lucas/Roteiro02/src/main/java/util/Util.java
